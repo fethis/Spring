@@ -11,5 +11,11 @@ public class Welcome {
 		
 		return "welcome";
 	}
+	
+	@RequestMapping("/")
+	public String home() {
+		
+		return "home";
+	}
 
 }
