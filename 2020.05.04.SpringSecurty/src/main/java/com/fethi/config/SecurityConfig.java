@@ -29,7 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		//gelen istekleri ele al kabul et(bütün istekler kimlik doğrulamasından geçecek)
-		http.authorizeRequests().anyRequest().authenticated();
+		http.authorizeRequests()
+			.anyRequest()
+			.authenticated();
 		
 		//login controllerpublic String showLoginForm() çağırıyor
 		http
@@ -38,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.loginProcessingUrl("/authenticateTheUser")//loginsayfasıoJSP den ki action--spring yapıyor
 				.permitAll();
 		
+		http//güvenli çıkış:D
+		.logout()
+		.permitAll();
 	}
 	
 	
